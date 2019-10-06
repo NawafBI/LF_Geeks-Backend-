@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from .models import Profile
 from rest_framework import serializers
 
 class UserCreateSerializer(serializers.ModelSerializer):
@@ -38,7 +39,33 @@ class UserCreateSerializer(serializers.ModelSerializer):
         return email
 
 
+class UserSeralizer(serializers.ModelSerializer):
+	class Meta:
+		model = User
+		fields = ['username', 'email', 'first_name', 'last_name',]
 
+class ProfileSerializer(serializers.ModelSerializer):
+	user = UserSeralizer()
+	# guild = serializers.SerializerMethodField()
+	# guildmaster = serializers.SerializerMethodField()
+
+	class Meta:
+		model = Profile
+		fields = ['user']
+
+	# def get_guild(self, obj, ):
+    # user_obj = obj.user
+	# 	if   :
+	# 		return ""
+
+    # def get_guildmaster(self, obj, ):
+     # user_obj = obj.user
+	# 	if   :
+	# 		return ""
+		
+
+
+	
 
 
         
