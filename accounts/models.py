@@ -1,4 +1,5 @@
 from django.db import models
+from games.models import Games
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -9,6 +10,9 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)	
     image = models.ImageField()
     age = models.PositiveIntegerField()
+    cv = models.TextField(max_length=300)
+    games = models.ManyToManyField(Games)
+      # guilds = models.ManyToManyField(related_name=guilds)
 
 
     def __str__(self):
@@ -18,6 +22,7 @@ class Profile(models.Model):
 def profile_creation(instance, created, *args, **kwargs):
     if created:
         Profile.objects.create(user=instance, age=0)
+
 
 
 

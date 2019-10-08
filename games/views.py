@@ -14,6 +14,10 @@ class GameView(ListAPIView):
 	queryset = Games.objects.all()
 	serializer_class = GetGameSerializer
 
-	# def get_serializer_class(self):
-	# 	if self.action == "list":
-	# 		return GetGameSerializer
+	
+
+
+
+	# the game detail must have a list of guilds and list of players  
+
+
