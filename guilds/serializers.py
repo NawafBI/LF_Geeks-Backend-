@@ -21,7 +21,15 @@ class DetailSerializer(serializers.ModelSerializer):
 class CreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Guild
-        fields = ["name", "games", "platform"]
+        fields = ["name", "games", "platform", "tag", "description",]
+        
+
+
+#games detail list in games
+class GuildNameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Guild
+        fields = ["name"]
 
 
 

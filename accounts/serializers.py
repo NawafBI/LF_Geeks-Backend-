@@ -46,24 +46,11 @@ class UserSeralizer(serializers.ModelSerializer):
 
 class ProfileSerializer(serializers.ModelSerializer):
 	user = UserSeralizer()
-	# guild = serializers.SerializerMethodField()
-	# guildmaster = serializers.SerializerMethodField()
-
 	class Meta:
 		model = Profile
 		fields = ['user']
 
-	# def get_guild(self, obj, ):
-    # user_obj = obj.user
-	# 	if   :
-	# 		return ""
-
-    # def get_guildmaster(self, obj, ):
-     # user_obj = obj.user
-	# 	if   :
-	# 		return ""
-		
-
+	
 
 	
 
