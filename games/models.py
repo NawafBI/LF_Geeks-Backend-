@@ -21,7 +21,7 @@ class Developer(models.Model):
 	def __str__(self):
 		return "%s: %s" % (self.id, self.developer)
 	
-class Games(models.Model):
+class Game(models.Model):
 
 	name = models.CharField(max_length=150)
 	genre = models.ManyToManyField(Genre)

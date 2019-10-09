@@ -1,5 +1,5 @@
 from django.db import models
-from games.models import Games
+from games.models import Game
 from accounts.models import Profile
 from games.models import Platform
 
@@ -9,7 +9,7 @@ from games.models import Platform
 
 class Guild(models.Model):
     name = models.CharField(max_length=150)
-    games = models.ManyToManyField(Games)
+    games = models.ManyToManyField(Game)
     platform = models.ManyToManyField(Platform)
     tag = models.ImageField()
     description = models.TextField(max_length=5000)
