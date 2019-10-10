@@ -38,13 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #rest_framework
+    'django_countries',  # country
+    # rest_framework
     'rest_framework',
-    'corsheaders', # for frontend to work
-    #apps
-    'accounts', #for login/registration 
-    'games', #for games
-    'guilds', # Guilds / GuildMaster
+    'corsheaders',  # for frontend to work
+    # apps
+    'accounts',  # for login/registration
+    'games',  # for games
+    'guilds',  # Guilds / GuildMaster
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -120,7 +121,7 @@ REST_FRAMEWORK = {
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': datetime.timedelta(hours=12),
- }
+}
 
 
 # Internationalization
@@ -143,4 +144,3 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
