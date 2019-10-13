@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .models import Game
 from rest_framework.generics import CreateAPIView, ListAPIView
-
 from rest_framework import authentication, permissions
 from .serializers import GameSerializer, GetGameSerializer, GameDetailSerializer
 

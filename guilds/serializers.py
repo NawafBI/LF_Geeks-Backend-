@@ -1,6 +1,7 @@
 # from django.contrib.auth.models import User
 from rest_framework import serializers
 from .models import Guild, Question
+
 class GuildSerializer(serializers.ModelSerializer):
     games = serializers.SlugRelatedField(
         many=True,

@@ -4,7 +4,6 @@ from accounts.models import Profile
 from games.models import Platform
 
 
-
 # Create your models here.
 
 class Guild(models.Model):
