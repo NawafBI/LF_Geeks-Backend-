@@ -31,4 +31,4 @@ class CreateSerializer(serializers.ModelSerializer):
 class GuildNameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Guild
-        fields = ["name"]
+        fields = ["name", "tag", "description"]
