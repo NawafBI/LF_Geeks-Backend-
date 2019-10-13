@@ -32,6 +32,9 @@ urlpatterns = [
     # gamelist/  [to get the list of games]     
     path('',include('guilds.urls')),
     # guild/ [model view set to get list, detail, update, delete, create etcc the guild]
+    # question_create[Create Questions]
+    # question_update [Update questions]
+    # question_list [Get questions]
 ]
 
 

@@ -1,7 +1,6 @@
 # from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import Guild
-
+from .models import Guild, Question
 class GuildSerializer(serializers.ModelSerializer):
     games = serializers.SlugRelatedField(
         many=True,
@@ -21,8 +20,7 @@ class DetailSerializer(serializers.ModelSerializer):
 class CreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Guild
-        fields = ["name", "games", "platform", "tag", "description",]
-        
+        fields = ["name", "games", "platform", "tag", "description"]
 
 
 #games detail list in games
@@ -30,6 +28,18 @@ class GuildNameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Guild
         fields = ["name"]
+
+
+#Questions
+class QuestionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Question
+        fields = ["title", "active"]
+
+
+    
+
+
 
 
 

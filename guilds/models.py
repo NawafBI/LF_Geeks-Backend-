@@ -18,6 +18,33 @@ class Guild(models.Model):
     def __str__(self):
         return str(self.name)
 
+class Question(models.Model):
+    title = models.TextField(max_length=250)
+    active = models.BooleanField(default=False)
+    guild = models.ForeignKey(Guild, on_delete=models.CASCADE)
+
+    # created_at = models.DateField(auto_now_add=True)
+    # updated_at = models.DateField(auto_now=True)
+
+    # def save(self, *args, **kwargs):
+    #     ''' On save, update timestamps '''
+    #     if not self.id:
+    #         self.created_at = timezone.now()
+    #     self.modified = timezone.now()
+    #     return super(Profile, self.save(*args, **kwargs))
+
+
+
+    def __str__(self):
+        return str(self.title)
+
+
+# class Answer(models.Model):
+
+#     def __str__(self):
+#         return str(self.name)
+
+
 
 
 

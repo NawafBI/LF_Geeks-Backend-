@@ -3,4 +3,6 @@ from django.contrib import admin
 
 # # Register your models here.
 
-# admin.site.register(Guild)
+from .models import Guild
+
+admin.site.register(Guild)

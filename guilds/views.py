@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
-from .serializers import GuildSerializer, DetailSerializer, CreateSerializer
-from .models import Guild
+from rest_framework.generics import CreateAPIView, ListAPIView, UpdateAPIView
+from .serializers import GuildSerializer, DetailSerializer, CreateSerializer, QuestionSerializer
+from .models import Guild, Question
 
 # Create your views here.
 class GuildView(ModelViewSet):
@@ -21,3 +22,17 @@ class GuildView(ModelViewSet):
 	def perform_create(self, serializer):
 		serializer.save(master=self.request.user.profile)
 	
+
+# create
+class QuestionCreateAPIView(CreateAPIView):
+	serializer_class = QuestionSerializer
+
+# Questions
+class QuestionsView(ListAPIView):
+	queryset = Question.objects.all()
+	serializer_class = QuestionSerializer
+
+# update
+class QuestionsUpdateView(UpdateAPIView):
+	queryset = Question.objects.all()
+	serializer_class = QuestionSerializer
