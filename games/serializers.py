@@ -40,4 +40,4 @@ class GameSerializer(serializers.ModelSerializer):
 class GetGameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Game
-        fields = ["id", "name", "year", "genre", "image"]
+        fields = ["id", "name", "year", "genre", "image", ]
