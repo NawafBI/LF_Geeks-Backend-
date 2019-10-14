@@ -19,21 +19,23 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('accounts.urls')),
+    path('', include('accounts.urls')),
     # login/ [for login]
     # register/ [to register user]
     # profile/ [user unique profile]
-    path('',include('games.urls')),
+    path('', include('games.urls')),
     # creategame/ [to create game]
     # detailgame/ [to get game detail with guilds and memebers following]
-    # gamelist/  [to get the list of games]     
-    path('',include('guilds.urls')),
+    # gamelist/  [to get the list of games]
+    path('', include('guilds.urls')),
     # guild/ [model view set to get list, detail, update, delete, create etcc the guild]
+    # question_create[Create Questions]
+    # question_update [Update questions]
+    # question_list [Get questions]
 ]
 
 
-urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

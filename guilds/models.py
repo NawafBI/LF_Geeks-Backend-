@@ -18,3 +18,18 @@ class Guild(models.Model):
 
     def __str__(self):
         return str(self.name)
+
+
+class Question(models.Model):
+    title = models.TextField(max_length=250)
+    active = models.BooleanField(default=False)
+    guild = models.ForeignKey(Guild, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.title)
+
+
+# class Answer(models.Model):
+
+#     def __str__(self):
+#         return str(self.name)

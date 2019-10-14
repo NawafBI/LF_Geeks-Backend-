@@ -11,7 +11,6 @@ from rest_framework import serializers
 class GameDetailSerializer(serializers.ModelSerializer):
     players = serializers.SerializerMethodField()
     guilds = serializers.SerializerMethodField()
-    # players change to players
 
     class Meta:
         model = Game
@@ -20,11 +19,11 @@ class GameDetailSerializer(serializers.ModelSerializer):
 
     def get_players(self, obj):
         players = Profile.objects.filter(games=obj)
-        return ProfileLFGSerializer(players, many=True).data
+        return ProfileLFGSerializer(players, many=True, context={"request": self.context['request']}).data
 
     def get_guilds(self, obj):
         guilds = Guild.objects.filter(games=obj)
-        return GuildNameSerializer(guilds, many=True).data
+        return GuildNameSerializer(guilds, many=True, context={"request": self.context['request']}).data
 
 
 # TO CREATE GAME
@@ -41,4 +40,4 @@ class GameSerializer(serializers.ModelSerializer):
 class GetGameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Game
-        fields = ["id", "name", "year", "genre", "image"]
+        fields = ["id", "name", "year", "genre", "image", ]

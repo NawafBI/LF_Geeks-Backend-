@@ -23,7 +23,11 @@ class UserCreateSerializer(serializers.ModelSerializer):
                         first_name=first_name, last_name=last_name)
         new_user.set_password(password)
         new_user.save()
-
+        profile = Profile.objects.get(user=new_user)
+        print(self.context['request'].data['country'])
+        profile.country = self.context['request'].data['country']
+        profile.age = self.context['request'].data['age']
+        profile.save()
         # jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
         # jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
 
@@ -61,7 +65,7 @@ class ProfileLFGSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Profile
-        fields = ['username', 'image', 'cv', 'country']
+        fields = ['username', 'image', 'cv', 'country', ]
 
     def get_username(self, obj):
         return "%s" % (obj.user.username)

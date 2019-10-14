@@ -1,6 +1,6 @@
 # from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import Guild
+from .models import Guild, Question
 
 
 class GuildSerializer(serializers.ModelSerializer):
@@ -32,3 +32,11 @@ class GuildNameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Guild
         fields = ["name", "tag", "description"]
+
+# Questions
+
+
+class QuestionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Question
+        fields = ["title", "active"]
