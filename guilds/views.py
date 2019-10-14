@@ -41,3 +41,5 @@ class QuestionsView(ListAPIView):
 class QuestionsUpdateView(UpdateAPIView):
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer
+    lookup_field = 'id'
+    lookup_url_kwarg = 'object_id'

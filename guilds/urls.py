@@ -14,7 +14,7 @@ urlpatterns = [
     path('', include(router.urls)),
     path('question_create/', QuestionCreateAPIView.as_view()),
     path('question_list/', QuestionsView.as_view()),
-    path('question_update/<', QuestionsUpdateView.as_view()),
+    path('question_update/<int:object_id>/', QuestionsUpdateView.as_view()),
 
 ]
 
