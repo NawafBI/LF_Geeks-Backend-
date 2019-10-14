@@ -11,7 +11,8 @@ class UserCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ["username", "email", "password", "first_name", "last_name", ]
+        fields = ["username", "email", "password",
+                  "first_name", "last_name"]
 
     def create(self, validated_data):
         username = validated_data["username"]
@@ -23,6 +24,11 @@ class UserCreateSerializer(serializers.ModelSerializer):
                         first_name=first_name, last_name=last_name)
         new_user.set_password(password)
         new_user.save()
+        profile = Profile.objects.get(user=new_user)
+        print(self.context['request'].data['country'])
+        profile.country = self.context['request'].data['country']
+        profile.age = self.context['request'].data['age']
+        profile.save()
 
         # jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
         # jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
