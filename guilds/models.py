@@ -11,7 +11,7 @@ class Guild(models.Model):
     name = models.CharField(max_length=150)
     games = models.ManyToManyField(Game)
     platform = models.ManyToManyField(Platform)
-    tag = models.ImageField()
+    tag = models.TextField()
     description = models.TextField(max_length=5000)
     # read the other options for on_delete
     master = models.ForeignKey(Profile, on_delete=models.CASCADE)
