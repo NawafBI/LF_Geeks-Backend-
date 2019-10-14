@@ -51,11 +51,15 @@ class UserSeralizer(serializers.ModelSerializer):
 
 
 class ProfileSerializer(serializers.ModelSerializer):
-    user = UserSeralizer()
+    # user = UserSeralizer()
+    username = serializers.SerializerMethodField()
 
     class Meta:
         model = Profile
-        fields = ['user']
+        fields = ['user', 'username', 'country', "image", 'cv', ]
+
+    def get_username(self, obj):
+        return "%s" % (obj.user.username)
 
     # LFG=Looking for group
 
