@@ -1,6 +1,9 @@
 # from django.contrib.auth.models import User
 from rest_framework import serializers
+from games.models import Game
 from .models import Guild, Question, Recruitment, Answer
+
+
 #bulk framwork
 from rest_framework_bulk import (
     BulkListSerializer,
@@ -17,10 +20,18 @@ class GuildSerializer(serializers.ModelSerializer):
         model = Guild
         fields = ["name", "games", "platform", "tag"]
 
+# 
+class GameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Game
+        fields = ["id", "name", "year", "image",
+                  "genre", "developer", "description"]
+
 class DetailSerializer(serializers.ModelSerializer):
+    games = GameSerializer(many=True, read_only=True)
     class Meta:
         model = Guild
-        fields = ["name", "games", "tag", "description", "platform"]
+        fields = ["name", "games", "tag", "description", "platform"] 
 
 
 class CreateSerializer(serializers.ModelSerializer):

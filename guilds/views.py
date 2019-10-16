@@ -18,11 +18,12 @@ class GuildView(ModelViewSet):
 		if self.action == "list":
 			return GuildSerializer
 		if self.action == "detail":
-			return DetailSerializer
+			return GameSerializer
 		if self.action == "create":
 			return CreateSerializer
 		if self.action == "update":
 			return DetailSerializer
+		return DetailSerializer
 
 	def perform_create(self, serializer):
 		serializer.save(master=self.request.user.profile)
