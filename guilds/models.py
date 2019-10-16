@@ -29,6 +29,32 @@ class Question(models.Model):
         return str(self.title)
 
 
+class Recruitment(models.Model):
+    STAGE_CHOICES = (
+        ("applicant", "applicant"),
+        ("application", "application"),
+        ("trial", "trial"),
+        ("final", "final")
+    )
+    status = models.CharField(max_length= 150, choices = STAGE_CHOICES, default="applicant")
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+   
+
+class  Answer(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    answer = models.TextField()
+    recruitment = models.ForeignKey(Recruitment, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.Recruitment)
+
+
+
+
+
+
+
+
 # class Answer(models.Model):
 
 #     def __str__(self):
