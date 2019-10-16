@@ -9,6 +9,7 @@ urlpatterns = [
     path('detailgame/<int:object_id>/',
          GameDetailAPIView.as_view(), name='detail-game'),
     path('gamelist/', GameListView.as_view(), name='game-list'),
+    
 ]
 
 
